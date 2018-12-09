@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Verkefni-7</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="css/verkefni7main.css">
+</head>
+<body>
+	
+		<div id="app"> 
+			
+			<div id="searchBar"class="ui search">
+	  			
+	  			<div class="ui icon input">
+	  				<vuejs-datepicker></vuejs-datepicker>
+	    			<input class="prompt" type="text" v-model="search" placeholder="Search shows..." >
+	    			<i class="search icon"></i>
+	  			</div>
+	  			<div class="results"></div>
+			</div>
+
+				<div id="gallery" v-for="product in filteredConcerts" class="prod">
+
+					<img :src='product.imageSource'>
+						<h2>{{ product.eventDateName }}</h2>
+						<div class="hallName">
+							<span class="float-left">
+								{{ product.eventHallName }}
+							</span>
+							 | 
+							<span class="float-right">
+							{{ product.dateOfShow | moment }}
+							</span>
+						</div>
+				</div>
+
+		</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.18/vue.js"></script>
+	<script src="https://unpkg.com/vuejs-datepicker"></script>
+	<script src="js/verkefni7.js"></script>
+</body>
+</html>
